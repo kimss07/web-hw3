@@ -8,30 +8,50 @@
 </head>
 <body>
   <header>
-    <h1>내 영화 보드</h1>
-    <p>검색과 정렬, 찜 기능을 실습하는 영화 보드입니다.</p>
+    <div class="header-inner">
+      <h1>내 영화 보드</h1>
+      <nav>
+        <a href="#board">영화 보드</a>
+      </nav>
+    </div>
   </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <h2>요즘 내가 고른 영화 다섯 편</h2>
+      <p>스파이더맨 시리즈와 박스오피스 영화 보드</p>
+    </div>
+  </section>
 
   <main>
     <div class="toolbar">
-      <p id="count"></p>
-      <p>찜 <span id="likeCount">0</span>편</p>
+      <input id="q" type="search" placeholder="영화 제목 검색">
+      <fieldset id="typeFilter">
+        <legend>보기</legend>
+        <label><input type="radio" name="type" value="all" checked> 전체</label>
+        <label><input type="radio" name="type" value="mine"> 내 영화</label>
+        <label><input type="radio" name="type" value="boxoffice"> 박스오피스</label>
+      </fieldset>
       <label for="sort">정렬</label>
       <select id="sort">
         <option value="rating">평점순</option>
         <option value="year">최신 개봉순</option>
-        <option value="title">제목순</option>
+        <option value="title">제목 가나다순</option>
       </select>
-      <input id="q" type="search" placeholder="스파이더맨 제목 검색">
+      <p><span id="count"></span>, 찜 <span id="likeCount">0</span>편</p>
     </div>
 
     <section class="board" id="board"></section>
     <p class="state-empty">조건에 맞는 영화가 없습니다.</p>
+
+    <dialog id="detail">
+      <div id="detailBody"></div>
+      <button type="button" id="closeDetail">닫기</button>
+    </dialog>
   </main>
 
   <footer>
-    <p>이 사이트는 TMDB API를 사용하지만 TMDB의 보증이나 인증을 받지 않았습니다.
-    This product uses the TMDB API but is not endorsed or certified by TMDB.</p>
+    <p>이 사이트는 TMDB API를 사용하지만 TMDB의 보증이나 인증을 받지 않았습니다. This product uses the TMDB API but is not endorsed or certified by TMDB.</p>
     <p>포스터와 영화 정보: TMDB (https://www.themoviedb.org)</p>
     <p>박스오피스 데이터: 영화진흥위원회 영화관입장권통합전산망(KOBIS), 기준일 2026-06-14</p>
   </footer>
